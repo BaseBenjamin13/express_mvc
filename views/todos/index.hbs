@@ -1,0 +1,38 @@
+
+<!-- views/todos/index.hbs -->
+{{!-- {{log "info logging" level="info"}} --}}
+
+<header class="d-flex justify-content-between align-items-center">
+  <h1>Todos</h1>
+  <a href="/todos/new" class="btn btn-primary">New To Do</a>
+</header>
+
+<h1>Todos</h1>
+
+<ul class="list-group">
+  {{#each todos}}
+  <li class="list-group-item d-flex justify-content-between">
+    
+    <!-- replace: <div>{{this.title}}</div> with: -->
+    <div>{{this.title}}</div>
+
+  
+
+    <div class="links">
+      <!-- for actions later -->
+      
+      	<a href="/todos/{{this.id}}/edit" class="btn btn-primary">Edit</a>
+	
+		<form action="/todos/{{this.id}}?_method=DELETE" method="POST" class="d-inline">
+      	<input type="submit" value="Delete" class="btn btn-danger" />
+      	</form>
+    </div>
+  </li>
+  {{/each}}
+</ul>
+
+<a href="/todos/{{this.id}}" class="btn btn-info">View</a>
+
+
+
+<script>console.log(`{{{todos}}}`)</script>

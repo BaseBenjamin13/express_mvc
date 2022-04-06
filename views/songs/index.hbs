@@ -1,0 +1,40 @@
+
+<!-- views/todos/index.hbs -->
+{{!-- {{log "info logging" level="info"}} --}}
+
+<header class="d-flex justify-content-between align-items-center">
+  <h1>Songs</h1>
+  <a href="/songs/new" class="btn btn-primary">New Song</a>
+</header>
+
+<h1>Songs</h1>
+
+<ul class="list-group">
+  {{#each songs}}
+  <li class="list-group-item d-flex justify-content-between">
+    
+    <!-- replace: <div>{{this.title}}</div> with: -->
+
+    
+    <div>{{this.song}}</div>
+    
+    <div>{{this.artist}}</div>
+
+
+    <div class="links">
+      <!-- for actions later -->
+    	<a href="/songs/{{this.songs}}edit" class="btn btn-primary">Edit</a>
+	
+		<form action="/songs/{{this.artist}}?_method=DELETE" method="POST" class="d-inline">
+      	<input type="submit" value="Delete" class="btn btn-danger" />
+      	</form>
+    </div>
+  </li>
+  {{/each}}
+</ul>
+
+<a href="/songs/{{this.id}}" class="btn btn-info">View</a>
+
+
+
+<script>console.log(`{{{songs}}}`)</script>
