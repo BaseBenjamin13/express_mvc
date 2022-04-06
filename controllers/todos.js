@@ -6,6 +6,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
+    // res.send('ejs setup')
     console.log('here');
     Todo.find({})
         .then((todos) => {
@@ -21,11 +22,12 @@ router.get('/new', (req, res) => {
 
 
 router.get('/:id', (req, res) => {
-    Todo.findById(req.params._id)
+    const id = req.params.id;
+    Todo.findById(id)
         .then((todo) => {
-            res.render('todos/show', todo)
+            res.render('todos/show', { todo })
         })
-        .catch(console.error);
+        .catch(console.error)
 })
 
 
@@ -33,7 +35,7 @@ router.get('/:id/edit', (req, res) => {
     const id = req.params.id;
     Todo.findById(id)
         .then((todo) => {
-            res.render('todos/edit', todo)
+            res.render('todos/edit', { todo })
         })
         .catch(console.error);
 })
@@ -49,7 +51,7 @@ router.put('/:id', (req, res) => {
         {new: true}
     )
     .then((todo) => {
-        res.render('todos/show', todo)
+        res.render('todos/show', { todo })
     })
     .catch(console.error)
 })

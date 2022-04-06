@@ -4,11 +4,12 @@ const methodOverride = require('method-override');
 const todoControllers = require('./controllers/todos');
 const songControllers = require('./controllers/songs');
 const app = express();
+const ejsLayouts = require('express-ejs-layouts');
 
 
 
-
-app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
+app.use(ejsLayouts);
 app.use(methodOverride('_method'));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))

@@ -1,0 +1,10 @@
+
+
+<h1><%=todo.title%></h1>
+<% if(todo.complete){ %>
+    <p>Status: complete</p>
+<% } else { %>
+    <p>Status: incomplete</p>
+<% } %>
+
+<a href="/todos" class="btn btn-secondary">&larr; Back</a>
