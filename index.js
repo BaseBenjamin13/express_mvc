@@ -28,3 +28,8 @@ app.listen(port, ()=> {
   
     console.log(`MVC app server ${port} running`);
 });
+
+
+//mongodb+srv://benjamin_m:<password>@cluster0.9xnz1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+//mongodb+srv://benjamin_m:Baseballbenji69@cluster0.9xnz1.mongodb.net/deployDB?retryWrites=true&w=majority
